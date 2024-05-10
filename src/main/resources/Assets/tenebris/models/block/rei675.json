@@ -1,14 +1,8 @@
 {
-  "variants": {
-    "": [
-      {
-        "loader": "neoforge:obj",
-        "model": "tenebris:block/rei_67_5.obj",
-        "textures": {
-          "7": "tenebris:block/rei_plush_texture",
-          "particle": "tenebris:block/rei_plush_texture"
-        }
-      }
-    ]
+  "loader": "neoforge:obj",
+  "model": "tenebris:models/block/rei_675.obj",
+  "textures": {
+    "7": "tenebris:block/rei_plush_texture",
+    "particle": "tenebris:block/rei_plush_texture"
   }
 }
