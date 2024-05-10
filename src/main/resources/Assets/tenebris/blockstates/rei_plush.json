@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "rotation=0": {
+      "model": "tenebris:block/rei_plush"
+    },
+    "rotation=1": {
+      "model": "tenebris:block/rei225"
+    },
+    "rotation=2": {
+      "model": "tenebris:block/rei45"
+    },
+    "rotation=3": {
+      "model": "tenebris:block/rei675"
+    },
+    "rotation=4": {
+      "model": "tenebris:block/rei_plush",
+      "y": 90
+    },
+    "rotation=5": {
+      "model": "tenebris:block/rei225",
+      "y": 90
+    },
+    "rotation=6": {
+      "model": "tenebris:block/rei45",
+      "y": 90
+    },
+    "rotation=7": {
+      "model": "tenebris:block/rei675",
+      "y": 90
+    },
+    "rotation=8": {
+      "model": "tenebris:block/rei_plush",
+      "y": 180
+    },
+    "rotation=9": {
+      "model": "tenebris:block/rei225",
+      "y": 180
+    },
+    "rotation=10": {
+      "model": "tenebris:block/rei45",
+      "y": 180
+    },
+    "rotation=11": {
+      "model": "tenebris:block/rei675",
+      "y": 180
+    },
+    "rotation=12": {
+      "model": "tenebris:block/rei_plush",
+      "y": 270
+    },
+    "rotation=13": {
+      "model": "tenebris:block/rei225",
+      "y": 270
+    },
+    "rotation=14": {
+      "model": "tenebris:block/rei45",
+      "y": 270
+    },
+    "rotation=15": {
+      "model": "tenebris:block/rei675",
+      "y": 270
+    }
+  }
+}
