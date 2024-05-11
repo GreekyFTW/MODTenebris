@@ -1,4 +1,4 @@
-/*package net.Greek.Tenebris.block.entity;
+package net.Greek.Tenebris.block.entity;
 
 import net.Greek.Tenebris.Tenebris;
 import net.Greek.Tenebris.block.ModBlocks;
@@ -15,13 +15,13 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE,Tenebris.MOD_ID);
 
-    public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<ReiAyanamiPlushBlock>> REI_BE =
-            BLOCK_ENTITIES.register("reiBE",
-                    () -> BlockEntityType.Builder.of(ReiAyanamiPlushBlock::new, ModBlocks.REI_CHIQUITA.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<ReiAyanamiPlushBlockEntity>> REI_BE =
+            BLOCK_ENTITIES.register("reibe",
+                    () -> BlockEntityType.Builder.of(ReiAyanamiPlushBlockEntity::new, ModBlocks.REI_CHIQUITA.get()).build(null));
 
     public static void register(IEventBus eventBus){
         BLOCK_ENTITIES.register(eventBus);
     }
 
 
-}*/
+}

@@ -2,9 +2,13 @@ package net.Greek.Tenebris;
 
 import net.Greek.Tenebris.block.ModBlocks;
 //import net.Greek.Tenebris.block.entity.ModBlockEntities;
+import net.Greek.Tenebris.block.entity.ModBlockEntities;
+import net.Greek.Tenebris.block.entityrenderers.ReiAyanamiPlushBlockRenderer;
 import net.Greek.Tenebris.item.ModCreativeModeTab;
 import net.Greek.Tenebris.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.ModelEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -40,7 +44,7 @@ public class Tenebris
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
-        //ModBlockEntities.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -78,6 +82,19 @@ public class Tenebris
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
+        }
+
+    }
+
+    @EventBusSubscriber(modid = Tenebris.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public class ClientSetup {
+        @SubscribeEvent
+        static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.REI_BE.get(), ReiAyanamiPlushBlockRenderer::new);
+        }
+        @SubscribeEvent
+        static void registerModels(ModelEvent.RegisterAdditional event) {
+            event.register(ReiAyanamiPlushBlockRenderer.MODEL_LOCATION);
         }
     }
 }

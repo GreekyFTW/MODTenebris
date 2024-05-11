@@ -2,6 +2,7 @@
 package net.Greek.Tenebris.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.Greek.Tenebris.block.entity.ReiAyanamiPlushBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
@@ -49,7 +50,7 @@ public class ReiAyanamiPlushBlock extends BaseEntityBlock {
 
     @Override
     public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
+        return RenderShape.ENTITYBLOCK_ANIMATED;
     }
 
     @Override
@@ -72,7 +73,7 @@ public class ReiAyanamiPlushBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return null;
+        return new ReiAyanamiPlushBlockEntity(pPos, pState);
     }
 
     /*@Override
@@ -100,5 +101,6 @@ public class ReiAyanamiPlushBlock extends BaseEntityBlock {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(ROTATION);
     }
+
 
 }
