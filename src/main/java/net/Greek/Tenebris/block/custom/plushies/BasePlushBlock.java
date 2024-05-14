@@ -1,32 +1,23 @@
 
-package net.Greek.Tenebris.block.custom;
+package net.Greek.Tenebris.block.custom.plushies;
 
 import com.mojang.serialization.MapCodec;
-import net.Greek.Tenebris.block.entity.ReiAyanamiPlushBlockEntity;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.RotationSegment;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
 import org.jetbrains.annotations.Nullable;
 
-public class ReiAyanamiPlushBlock extends BaseEntityBlock {
+public class BasePlushBlock extends BaseEntityBlock {
 
     private static final VoxelShape COLLISION_SHAPE = Block.box(3.5, 0, 3.5, 12.5, 13.3, 12.5);
     //private static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -36,7 +27,7 @@ public class ReiAyanamiPlushBlock extends BaseEntityBlock {
 
 
 
-    public ReiAyanamiPlushBlock() {
+    public BasePlushBlock() {
         super(BlockBehaviour.Properties.of()
                 .noOcclusion()
                 .lightLevel($->1)
@@ -70,10 +61,10 @@ public class ReiAyanamiPlushBlock extends BaseEntityBlock {
         return COLLISION_SHAPE;
     }
 
-    @Nullable
+    @Nullable //remember to override
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new ReiAyanamiPlushBlockEntity(pPos, pState);
+        return null;
     }
 
     /*@Override

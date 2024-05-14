@@ -3,7 +3,9 @@ package net.Greek.Tenebris;
 import net.Greek.Tenebris.block.ModBlocks;
 //import net.Greek.Tenebris.block.entity.ModBlockEntities;
 import net.Greek.Tenebris.block.entity.ModBlockEntities;
-import net.Greek.Tenebris.block.entityrenderers.ReiAyanamiPlushBlockRenderer;
+import net.Greek.Tenebris.block.entityrenderers.plushies.BasePlushBlockRenderer;
+//import net.Greek.Tenebris.block.entityrenderers.plushies.ReiAyanamiPlushBlockRenderer;
+
 import net.Greek.Tenebris.item.ModCreativeModeTab;
 import net.Greek.Tenebris.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -90,11 +92,13 @@ public class Tenebris
     public class ClientSetup {
         @SubscribeEvent
         static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-            event.registerBlockEntityRenderer(ModBlockEntities.REI_BE.get(), ReiAyanamiPlushBlockRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.BASE_BE.get(), BasePlushBlockRenderer::new);
+
         }
         @SubscribeEvent
         static void registerModels(ModelEvent.RegisterAdditional event) {
-            event.register(ReiAyanamiPlushBlockRenderer.MODEL_LOCATION);
+            event.register(BasePlushBlockRenderer.MODEL_LOCATION);
+            
         }
     }
 }

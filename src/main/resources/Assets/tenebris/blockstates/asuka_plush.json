@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/block",
+  "": {
+    "model": "tenebris:block/asuka_plush"
+  }
+}

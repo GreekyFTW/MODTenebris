@@ -1,11 +1,11 @@
-package net.Greek.Tenebris.block.entityrenderers;
+/*
+
+package net.Greek.Tenebris.block.entityrenderers.plushies;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.Greek.Tenebris.Tenebris;
-import net.Greek.Tenebris.block.custom.ReiAyanamiPlushBlock;
-import net.Greek.Tenebris.block.entity.ModBlockEntities;
-import net.Greek.Tenebris.block.entity.ReiAyanamiPlushBlockEntity;
+import net.Greek.Tenebris.block.entity.plushies.ReiAyanamiPlushBlockEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
@@ -15,16 +15,10 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelManager;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.RotationSegment;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class ReiAyanamiPlushBlockRenderer implements BlockEntityRenderer<ReiAyanamiPlushBlockEntity> {
@@ -50,4 +44,4 @@ public class ReiAyanamiPlushBlockRenderer implements BlockEntityRenderer<ReiAyan
         pPoseStack.popPose();
     }
 
-}
+}*/
