@@ -18,6 +18,9 @@ public class ModItems {
     public static final DeferredItem<Item> SHAFT = ITEMS.registerSimpleItem("shaft",
             new Item.Properties().stacksTo(16   ).durability(256));
 
+    public static final DeferredItem<Item> CHROMATIC_COMPOUND = ITEMS.registerSimpleItem("chromatic_compound",
+            new Item.Properties().stacksTo(64));
+
     public static final DeferredItem<Item> CLAYMORE_TRANSFOMED =
             ITEMS.register("claymore",
                     ()-> new BaseClaymore(Tiers.NETHERITE,

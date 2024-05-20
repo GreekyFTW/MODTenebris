@@ -8,6 +8,7 @@ import net.Greek.Tenebris.block.entityrenderers.plushies.BasePlushBlockRenderer;
 
 import net.Greek.Tenebris.item.ModCreativeModeTab;
 import net.Greek.Tenebris.item.ModItems;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
@@ -66,6 +67,7 @@ public class Tenebris
     private void addCreative(BuildCreativeModeTabContentsEvent event){
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ModItems.SHAFT);
+            event.accept(ModItems.CHROMATIC_COMPOUND);
             event.accept(ModItems.CLAYMORE_TRANSFOMED);
         }
     }
@@ -97,7 +99,9 @@ public class Tenebris
         }
         @SubscribeEvent
         static void registerModels(ModelEvent.RegisterAdditional event) {
-            event.register(BasePlushBlockRenderer.MODEL_LOCATION);
+            event.register(new ResourceLocation(Tenebris.MOD_ID, "block/rei_plush"));
+            event.register(new ResourceLocation(Tenebris.MOD_ID, "block/asuka_plush"));
+            event.register(new ResourceLocation(Tenebris.MOD_ID, "block/shinji_plush"));
             
         }
     }

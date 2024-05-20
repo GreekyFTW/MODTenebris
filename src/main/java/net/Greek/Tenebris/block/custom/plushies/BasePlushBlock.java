@@ -2,6 +2,7 @@
 package net.Greek.Tenebris.block.custom.plushies;
 
 import com.mojang.serialization.MapCodec;
+import net.Greek.Tenebris.block.entity.plushies.BasePlushBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -64,7 +65,7 @@ public class BasePlushBlock extends BaseEntityBlock {
     @Nullable //remember to override
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return null;
+        return new BasePlushBlockEntity(pPos, pState);
     }
 
     /*@Override
@@ -92,6 +93,8 @@ public class BasePlushBlock extends BaseEntityBlock {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(ROTATION);
     }
+
+
 
 
 }

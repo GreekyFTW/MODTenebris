@@ -22,9 +22,10 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 import net.Greek.Tenebris.block.ModBlocks;
 
     public class BasePlushBlockRenderer implements BlockEntityRenderer<BasePlushBlockEntity> {
-    public static final ResourceLocation MODEL_LOCATION = new ResourceLocation(Tenebris.MOD_ID, "block/rei_plush");
 
-
+    /*public static final ResourceLocation MODEL_LOCATION_REI = new ResourceLocation(Tenebris.MOD_ID, "block/rei_plush");
+    public static final ResourceLocation MODEL_LOCATION_ASUKA = new ResourceLocation(Tenebris.MOD_ID, "block/asuka_plush");
+    public static final ResourceLocation MODEL_LOCATION_SHINJI = new ResourceLocation(Tenebris.MOD_ID, "block/shinji_plush");*/
 
     private final ModelBlockRenderer modelRenderer;
     private final ModelManager modelManager;
@@ -44,7 +45,7 @@ import net.Greek.Tenebris.block.ModBlocks;
         if(block == ModBlocks.REI_CHIQUITA.get()) model = modelManager.getModel(new ResourceLocation(Tenebris.MOD_ID, "block/rei_plush"));
         else if(block == ModBlocks.ASUKA_CHIQUITA.get()) model = modelManager.getModel(new ResourceLocation(Tenebris.MOD_ID, "block/asuka_plush"));
         else if(block == ModBlocks.SHINJI_CHIQUITA.get()) model = modelManager.getModel(new ResourceLocation(Tenebris.MOD_ID, "block/shinji_plush"));
-        else model = modelManager.getMissingModel();
+        else model = modelManager.getModel(new ResourceLocation(Tenebris.MOD_ID, "block/rei_plush"));
 
         ModelData modelData = pBlockEntity.getModelData();
         pPoseStack.pushPose();

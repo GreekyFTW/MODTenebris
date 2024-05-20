@@ -1,5 +1,9 @@
 {
   "parent": "minecraft:block/block",
+  "textures": {
+    "0": "tenebris:block/shinji_plush_texture",
+    "particle": "tenebris:block/rei_plush_texture"
+  },
   "variants": {
     "rotation=0": {
       "model": "tenebris:block/rei_plush"

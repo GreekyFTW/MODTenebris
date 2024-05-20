@@ -13,9 +13,7 @@ import static net.Greek.Tenebris.block.ModBlocks.REI_PLUSH_ITEM;
 import static net.Greek.Tenebris.block.ModBlocks.ASUKA_PLUSH_ITEM;
 import static net.Greek.Tenebris.block.ModBlocks.SHINJI_PLUSH_ITEM;
 import static net.Greek.Tenebris.block.ModBlocks.KALLEN_PLUSH_ITEM;
-
-import static net.Greek.Tenebris.item.ModItems.CLAYMORE_TRANSFOMED;
-import static net.Greek.Tenebris.item.ModItems.SHAFT;
+import static net.Greek.Tenebris.item.ModItems.*;
 
 
 public class ModCreativeModeTab {
@@ -29,6 +27,7 @@ public class ModCreativeModeTab {
                     .icon(() -> SHAFT.get().getDefaultInstance())
                     .displayItems((parameters, output) -> {
                         output.accept(SHAFT.get());
+                        output.accept(CHROMATIC_COMPOUND.get());
                         output.accept(REI_PLUSH_ITEM.get());
                         output.accept(ASUKA_PLUSH_ITEM.get());
                         output.accept(SHINJI_PLUSH_ITEM.get());

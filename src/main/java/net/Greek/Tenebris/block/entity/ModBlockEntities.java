@@ -22,7 +22,8 @@ public class ModBlockEntities {
                     () -> BlockEntityType.Builder.of(BasePlushBlockEntity::new,
                             ModBlocks.REI_CHIQUITA.get(),
                             ModBlocks.ASUKA_CHIQUITA.get(),
-                            ModBlocks.SHINJI_CHIQUITA.get()).build(null));
+                            ModBlocks.SHINJI_CHIQUITA.get())
+                            .build(null));
 
 
     public static void register(IEventBus eventBus){

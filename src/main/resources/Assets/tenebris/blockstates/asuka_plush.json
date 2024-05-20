@@ -1,6 +1,69 @@
 {
   "parent": "minecraft:block/block",
   "": {
-    "model": "tenebris:block/asuka_plush"
-  }
+    "model": "tenebris:block/asuka_plush",
+    "particle": "tenebris:block/asuka_plush_texture"
+  },
+  "variants": {
+    "rotation=0": {
+      "model": "tenebris:block/asuka_plush"
+    },
+    "rotation=1": {
+      "model": "tenebris:block/asuka_plush"
+    },
+    "rotation=2": {
+      "model": "tenebris:block/asuka_plush"
+    },
+    "rotation=3": {
+      "model": "tenebris:block/asuka_plush"
+    },
+    "rotation=4": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 90
+    },
+    "rotation=5": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 90
+    },
+    "rotation=6": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 90
+    },
+    "rotation=7": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 90
+    },
+    "rotation=8": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 180
+    },
+    "rotation=9": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 180
+    },
+    "rotation=10": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 180
+    },
+    "rotation=11": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 180
+    },
+    "rotation=12": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 270
+    },
+    "rotation=13": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 270
+    },
+    "rotation=14": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 270
+    },
+    "rotation=15": {
+      "model": "tenebris:block/asuka_plush",
+      "y": 270
+    }
+}
 }
