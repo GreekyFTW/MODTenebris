@@ -1,0 +1,16 @@
+{
+  "parent": "minecraft:item/generated",
+  "variants": {
+    "IsTransformed=true": {
+      "textures": {
+        "layer0": "tenebris:item/dust_lead"
+      }
+    },
+
+    "IsTransformed=false": {
+      "textures": {
+        "layer0": "tenebris:item/chromatic_compound"
+      }
+    }
+  }
+}

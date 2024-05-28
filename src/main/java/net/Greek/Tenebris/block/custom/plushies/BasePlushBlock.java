@@ -3,9 +3,19 @@ package net.Greek.Tenebris.block.custom.plushies;
 
 import com.mojang.serialization.MapCodec;
 import net.Greek.Tenebris.block.entity.plushies.BasePlushBlockEntity;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.commands.PlaySoundCommand;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -14,8 +24,11 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.RotationSegment;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.Greek.Tenebris.sound.ModSounds;
+import net.neoforged.neoforge.client.event.sound.PlaySoundEvent;
 import org.jetbrains.annotations.Nullable;
 
 public class BasePlushBlock extends BaseEntityBlock {
@@ -94,7 +107,10 @@ public class BasePlushBlock extends BaseEntityBlock {
         pBuilder.add(ROTATION);
     }
 
-
-
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        level.playSound(player, pos, ModSounds.SQUEEK.get(), SoundSource.BLOCKS);
+        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
 
 }

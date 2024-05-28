@@ -1,7 +1,8 @@
 package net.Greek.Tenebris.item;
 
 import net.Greek.Tenebris.Tenebris;
-import net.Greek.Tenebris.item.Tools.BaseClaymore;
+import net.Greek.Tenebris.item.Tools.Claymore;
+import net.Greek.Tenebris.item.Tools.transformer;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -21,12 +22,23 @@ public class ModItems {
     public static final DeferredItem<Item> CHROMATIC_COMPOUND = ITEMS.registerSimpleItem("chromatic_compound",
             new Item.Properties().stacksTo(64));
 
-    public static final DeferredItem<Item> CLAYMORE_TRANSFOMED =
+
+
+
+    public static final DeferredItem<Item> CLAYMORE =
             ITEMS.register("claymore",
-                    ()-> new BaseClaymore(Tiers.NETHERITE,
+                    ()-> new Claymore(Tiers.NETHERITE,
                             new Item.Properties()
                                     .fireResistant()
                                     .durability(999999999)));
+
+    public static final DeferredItem<Item> TRANSFORMER =
+            ITEMS.register("transformer",
+                    ()-> new transformer(Tiers.NETHERITE,
+                            new Item.Properties()
+                                    .fireResistant()
+                                    .durability(999999999)));
+
 
 
     public static void register(IEventBus eventBus) {

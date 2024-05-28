@@ -32,7 +32,7 @@ public class ModCreativeModeTab {
                         output.accept(ASUKA_PLUSH_ITEM.get());
                         output.accept(SHINJI_PLUSH_ITEM.get());
                         output.accept(KALLEN_PLUSH_ITEM.get());
-                        output.accept(CLAYMORE_TRANSFOMED.get());
+                        output.accept(CLAYMORE.get());
                     })
                     .build()
 

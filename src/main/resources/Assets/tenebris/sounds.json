@@ -1,0 +1,9 @@
+{
+  "squeek": {
+    "sounds": [
+      {
+        "name":"tenebris:squeek",
+        "attenuation_distance": 7
+      }]
+  }
+}

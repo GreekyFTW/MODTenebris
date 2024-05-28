@@ -624,5 +624,14 @@
 			"color": 0,
 			"children": [41, 42]
 		}
+	],
+	"overrides": [
+		{
+			"__comment": "power >= .75",
+			"predicate": {
+				"tenebris:transform": 0.75
+			},
+			"model": "tenebris:item/shaft"
+		}
 	]
 }
