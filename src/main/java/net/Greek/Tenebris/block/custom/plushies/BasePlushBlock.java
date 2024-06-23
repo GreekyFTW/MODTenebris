@@ -7,8 +7,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.commands.PlaySoundCommand;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -22,6 +24,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.RotationSegment;
 import net.minecraft.world.phys.BlockHitResult;
@@ -38,8 +41,8 @@ public class BasePlushBlock extends BaseEntityBlock {
     private static final int MAX = RotationSegment.getMaxSegmentIndex();
     private static final int ROTATIONS = MAX + 1;
     private static final IntegerProperty ROTATION = BlockStateProperties.ROTATION_16;
-
-
+    //private static final MapCodec<BasePlushBlock> CODEC = simpleCodec(RedstoneLampBlock::new);
+    public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
 
     public BasePlushBlock() {
         super(BlockBehaviour.Properties.of()
@@ -51,6 +54,7 @@ public class BasePlushBlock extends BaseEntityBlock {
                 .noCollission());
         //this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
         this.registerDefaultState(this.defaultBlockState().setValue(ROTATION, Integer.valueOf(0)));
+        this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.valueOf(false)));
     }
 
     @Override
@@ -61,8 +65,32 @@ public class BasePlushBlock extends BaseEntityBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         //return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
-        return super.getStateForPlacement(pContext).setValue(ROTATION, Integer.valueOf(RotationSegment.convertToSegment(pContext.getRotation())));
+        //return super.getStateForPlacement(pContext).setValue(ROTATION, Integer.valueOf(RotationSegment.convertToSegment(pContext.getRotation()))) ;
 
+        return this.defaultBlockState()
+                .setValue(ROTATION, Integer.valueOf(RotationSegment.convertToSegment(pContext.getRotation())))
+                .setValue(LIT, Boolean.valueOf(pContext.getLevel().hasNeighborSignal(pContext.getClickedPos())));
+    }
+
+    @Override
+    protected void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {
+        if (!pLevel.isClientSide) {
+            boolean flag = pState.getValue(LIT);
+            if (flag != pLevel.hasNeighborSignal(pPos)) {
+                if (flag) {
+                    pLevel.scheduleTick(pPos, this, 4);
+                } else {
+                    pLevel.setBlock(pPos, pState.cycle(LIT), 2);
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pState.getValue(LIT) && !pLevel.hasNeighborSignal(pPos)) {
+            pLevel.setBlock(pPos, pState.cycle(LIT), 2);
+        }
     }
 
     @Override
@@ -91,11 +119,6 @@ public class BasePlushBlock extends BaseEntityBlock {
         return pState.setValue(ROTATION, Integer.valueOf(pRotation.rotate(pState.getValue(ROTATION), ROTATIONS)));
     }
 
-    /*@Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING);
-    }*/
-
     @Override
     protected BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.setValue(ROTATION, Integer.valueOf(pMirror.mirror(pState.getValue(ROTATION), ROTATIONS)));
@@ -105,6 +128,7 @@ public class BasePlushBlock extends BaseEntityBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
         pBuilder.add(ROTATION);
+        pBuilder.add(LIT);
     }
 
     @Override

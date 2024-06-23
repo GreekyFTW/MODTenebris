@@ -627,9 +627,8 @@
 	],
 	"overrides": [
 		{
-			"__comment": "power >= .75",
 			"predicate": {
-				"tenebris:transform": 0.75
+				"tenebris:claymore_mode": 1
 			},
 			"model": "tenebris:item/shaft"
 		}

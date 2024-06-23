@@ -3,9 +3,11 @@ package net.Greek.Tenebris.util;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.Greek.Tenebris.Tenebris;
 import net.minecraft.client.KeyMapping;
+import net.minecraft.client.gui.screens.options.controls.KeyBindsList;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import org.lwjgl.glfw.GLFW;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
@@ -20,18 +22,6 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-//
-//public class KeyBinding {
-//    public static final String KEY_CATEGORY_TENEBRIS = "key.category.tenebris";
-//
-//    public static final String CLAYMORE_TRANSFORM = "key.tenebris.transform_claymore";
-//
-//    public static final KeyMapping TRANFORM_KEY = new KeyMapping(CLAYMORE_TRANSFORM, KeyConflictContext.IN_GAME,
-//            InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_0, KEY_CATEGORY_TENEBRIS);
-//
-// }
 @EventBusSubscriber(value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public  class KeyBindings {
 
@@ -58,7 +48,6 @@ public  class KeyBindings {
     private static String getKey(String name) {
         return String.join(".", "key", Tenebris.MOD_ID, name);
     }
-
 
     public static class KeyConflictTransform implements IKeyConflictContext {
         @Override

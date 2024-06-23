@@ -1,31 +1,19 @@
-package net.Greek.Tenebris.item.Tools;
+package net.Greek.Tenebris.item.Tools.Claymore;
 
 //import net.Greek.Tenebris.util.ItemRenderer.ClaymoreItemRenderer;
 //import net.Greek.Tenebris.util.ItemRenderer.ClaymoreModel;
-import net.Greek.Tenebris.Tenebris;
-import net.Greek.Tenebris.item.ModItems;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.item.ClampedItemPropertyFunction;
-import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
-import org.jetbrains.annotations.Nullable;
 
-import static net.Greek.Tenebris.client.event.EventKeyInput.IsTransformed;
 import static net.minecraft.world.item.SwordItem.createAttributes;
 
-public class Claymore extends Item {
+public class Claymore extends SwordItem {
     //int ClaymoreMode = 0;
 
     public Claymore(Tier tier, Properties properties ) {
-        super(properties.attributes(createAttributes(tier, 15, -2.5f)));
+        super(tier, properties.attributes(createAttributes(tier, 15, -2.5f)));
 
     }
 

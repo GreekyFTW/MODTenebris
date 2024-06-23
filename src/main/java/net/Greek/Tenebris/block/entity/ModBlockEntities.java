@@ -23,7 +23,9 @@ public class ModBlockEntities {
                             ModBlocks.REI_CHIQUITA.get(),
                             ModBlocks.ASUKA_CHIQUITA.get(),
                             ModBlocks.SHINJI_CHIQUITA.get(),
-                            ModBlocks.KALLEN_CHIQUITA.get())
+                            ModBlocks.KALLEN_CHIQUITA.get(),
+                            ModBlocks.DENJI_CHIQUITA.get(),
+                            ModBlocks.CSM_CHIQUITA.get())
                             .build(null));
 
 

@@ -29,8 +29,7 @@ public final class ModSounds {
         registerVariableRangeSound(String name){
         return  SOUND_EVENTS.register(
                 name,
-                ()-> SoundEvent.createVariableRangeEvent(new
-                        ResourceLocation(Tenebris.MOD_ID, name))
+                ()-> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(Tenebris.MOD_ID, name))
         );
     }
 

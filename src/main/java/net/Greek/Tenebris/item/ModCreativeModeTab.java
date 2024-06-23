@@ -9,10 +9,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.bus.api.IEventBus;
 
-import static net.Greek.Tenebris.block.ModBlocks.REI_PLUSH_ITEM;
-import static net.Greek.Tenebris.block.ModBlocks.ASUKA_PLUSH_ITEM;
-import static net.Greek.Tenebris.block.ModBlocks.SHINJI_PLUSH_ITEM;
-import static net.Greek.Tenebris.block.ModBlocks.KALLEN_PLUSH_ITEM;
+import static net.Greek.Tenebris.block.ModBlocks.*;
 import static net.Greek.Tenebris.item.ModItems.*;
 
 
@@ -32,7 +29,10 @@ public class ModCreativeModeTab {
                         output.accept(ASUKA_PLUSH_ITEM.get());
                         output.accept(SHINJI_PLUSH_ITEM.get());
                         output.accept(KALLEN_PLUSH_ITEM.get());
+                        output.accept(DENJI_PLUSH_ITEM.get());
+                        output.accept(CSM_PLUSH_ITEM.get());
                         output.accept(CLAYMORE.get());
+                        output.accept(MEPI.get());
                     })
                     .build()
 
