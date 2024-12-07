@@ -24,6 +24,8 @@ public class ModBlocks {
     public static final DeferredBlock<Block> KALLEN_CHIQUITA = BLOCKS.register("kallen_plush",  BasePlushBlock::new );
     public static final DeferredBlock<Block> DENJI_CHIQUITA = BLOCKS.register("denji_plush",  BasePlushBlock::new );
     public static final DeferredBlock<Block> CSM_CHIQUITA = BLOCKS.register("csm_plush",  BasePlushBlock::new );
+    public static final DeferredBlock<Block> GRACE_CHIQUITA = BLOCKS.register("grace_plush",  BasePlushBlock::new );
+    public static final DeferredBlock<Block> NAVIA_CHIQUITA = BLOCKS.register("navia_plush",  BasePlushBlock::new );
 
 
     public static final DeferredItem<BlockItem> REI_PLUSH_ITEM = ITEMS.registerSimpleBlockItem("rei_plush", REI_CHIQUITA);
@@ -32,6 +34,8 @@ public class ModBlocks {
     public static final DeferredItem<BlockItem> KALLEN_PLUSH_ITEM = ITEMS.registerSimpleBlockItem("kallen_plush", KALLEN_CHIQUITA);
     public static final DeferredItem<BlockItem> DENJI_PLUSH_ITEM = ITEMS.registerSimpleBlockItem("denji_plush", DENJI_CHIQUITA);
     public static final DeferredItem<BlockItem> CSM_PLUSH_ITEM = ITEMS.registerSimpleBlockItem("csm_plush", CSM_CHIQUITA);
+    public static final DeferredItem<BlockItem> GRACE_PLUSH_ITEM = ITEMS.registerSimpleBlockItem("grace_plush", GRACE_CHIQUITA);
+    public static final DeferredItem<BlockItem> NAVIA_PLUSH_ITEM = ITEMS.registerSimpleBlockItem("navia_plush", NAVIA_CHIQUITA);
 
 public static void register(IEventBus eventBus){
     BLOCKS.register(eventBus);

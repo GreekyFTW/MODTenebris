@@ -1,0 +1,6 @@
+register model on the client event handler
+register states on BasePlushBlockRenderer
+register Blockstates as a json
+register blocks and items on ModBlocks
+register creative tab on ModCreativeTab
+register block entities on ModBlockEntities

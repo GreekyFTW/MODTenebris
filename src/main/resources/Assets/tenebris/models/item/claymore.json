@@ -630,7 +630,7 @@
 			"predicate": {
 				"tenebris:claymore_mode": 1
 			},
-			"model": "tenebris:item/shaft"
+			"model": "tenebris:item/transforming_brush"
 		}
 	]
 }

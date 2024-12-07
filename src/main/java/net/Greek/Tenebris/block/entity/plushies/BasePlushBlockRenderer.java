@@ -63,7 +63,11 @@ public class BasePlushBlockRenderer implements BlockEntityRenderer<BasePlushBloc
             else if (block == ModBlocks.DENJI_CHIQUITA.get())
                 model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/denji_plush")));
             else if (block == ModBlocks.CSM_CHIQUITA.get())
-                model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/kallen_plush")));
+                model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/csm_plush")));
+            else if (block == ModBlocks.GRACE_CHIQUITA.get())
+                model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/grace_plush")));
+            else if (block == ModBlocks.NAVIA_CHIQUITA.get())
+                model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/navia_plush")));
             else
                 model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/rei_plush")));
 
@@ -83,6 +87,10 @@ public class BasePlushBlockRenderer implements BlockEntityRenderer<BasePlushBloc
                 model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/csm_plush")));
             else if (block == ModBlocks.CSM_CHIQUITA.get())
                 model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/denji_plush")));
+            else if (block == ModBlocks.GRACE_CHIQUITA.get())
+                model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/grace_plush")));
+            else if (block == ModBlocks.NAVIA_CHIQUITA.get())
+                model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/navia_plush")));
             else
                 model = modelManager.getModel(ModelResourceLocation.standalone(rl("block/rei_plush")));
         }

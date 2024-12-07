@@ -8,6 +8,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import org.jetbrains.annotations.NotNull;
 import org.lwjgl.glfw.GLFW;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
@@ -33,6 +34,15 @@ public  class KeyBindings {
 
     public static KeyMapping TransformClaymore = createBinding("transform_claymore", GLFW.GLFW_KEY_O);//repeat to add new keybinds
 
+    public static KeyMapping Spell1 = createBinding("spell_one", GLFW.GLFW_KEY_O);//repeat to add new keybinds
+    public static KeyMapping Spell2 = createBinding("spell_two", GLFW.GLFW_KEY_O);
+    public static KeyMapping Spell3 = createBinding("spell_three", GLFW.GLFW_KEY_O);
+    public static KeyMapping Spell4 = createBinding("spell_four", GLFW.GLFW_KEY_O);
+
+    public static KeyMapping ScrollForwards = createBinding("scrollforward", GLFW.GLFW_KEY_O);
+    public static KeyMapping ScrollBackwards = createBinding("scrollbackward", GLFW.GLFW_KEY_O);
+    public static KeyMapping CastSpell = createBinding("cast", GLFW.GLFW_KEY_O);
+
     private static KeyMapping createBinding(String name, int key) {
         KeyMapping keyBinding = new KeyMapping(getKey(name), CONFLICT_TRANSFORM, InputConstants.Type.KEYSYM.getOrCreate(key), getKey("category"));
         keyMappings.add(keyBinding);
@@ -57,7 +67,7 @@ public  class KeyBindings {
         }
 
         @Override
-        public boolean conflicts(IKeyConflictContext other) {
+        public boolean conflicts(@NotNull IKeyConflictContext other) {
             return other == this || other == KeyConflictContext.IN_GAME;
         }
     }

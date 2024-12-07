@@ -25,12 +25,15 @@ public class ModCreativeModeTab {
                     .displayItems((parameters, output) -> {
                         output.accept(SHAFT.get());
                         output.accept(CHROMATIC_COMPOUND.get());
+                        output.accept(STUFFING.get());
                         output.accept(REI_PLUSH_ITEM.get());
                         output.accept(ASUKA_PLUSH_ITEM.get());
                         output.accept(SHINJI_PLUSH_ITEM.get());
                         output.accept(KALLEN_PLUSH_ITEM.get());
                         output.accept(DENJI_PLUSH_ITEM.get());
                         output.accept(CSM_PLUSH_ITEM.get());
+                        output.accept(GRACE_PLUSH_ITEM.get());
+                        output.accept(NAVIA_PLUSH_ITEM.get());
                         output.accept(CLAYMORE.get());
                         output.accept(MEPI.get());
                     })

@@ -36,8 +36,9 @@ public final class ModSounds {
     public static final Supplier<SoundEvent> SQUEEK =
             registerVariableRangeSound("squeek");
 
+    public static final Supplier<SoundEvent> CHAINSAWREV =
+            registerVariableRangeSound("chainsawrev");
 
-//    public  static  void register(IEventBus modBus){
-//        SOUND_EVENTS.register(modBus);
-//    }
+
+
 }

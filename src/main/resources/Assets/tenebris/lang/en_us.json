@@ -2,11 +2,14 @@
   "item.tenebris.shaft": "Shaft",
   "item.tenebris.chromatic_compound": "Allirisenite",
   "item.tenebris.claymore": "Transforming Brush",
+  "item.tenebris.stuffing": "PP Cotton",
   "block.tenebris.rei_plush" : "Rei Plush",
   "block.tenebris.asuka_plush" : "Asuka Plush",
   "block.tenebris.shinji_plush" : "Shinji Plush",
   "block.tenebris.kallen_plush" : "Kallen Plush",
   "block.tenebris.denji_plush" : "Denji Plush",
   "block.tenebris.csm_plush" : "Chainsaw Man Plush",
+  "block.tenebris.grace_plush" : "Grace Plush",
+  "block.tenebris.navia_plush" : "Navia Plush",
   "creativetab.tenebrae": "Tenebris"
 }

@@ -25,8 +25,11 @@ public class ModBlockEntities {
                             ModBlocks.SHINJI_CHIQUITA.get(),
                             ModBlocks.KALLEN_CHIQUITA.get(),
                             ModBlocks.DENJI_CHIQUITA.get(),
-                            ModBlocks.CSM_CHIQUITA.get())
-                            .build(null));
+                            ModBlocks.CSM_CHIQUITA.get(),
+                            ModBlocks.GRACE_CHIQUITA.get(),
+                            ModBlocks.NAVIA_CHIQUITA.get()
+
+                            ).build(null));
 
 
     public static void register(IEventBus eventBus){
