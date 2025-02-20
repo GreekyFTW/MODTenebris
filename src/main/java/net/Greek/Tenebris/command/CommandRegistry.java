@@ -11,6 +11,7 @@ public class CommandRegistry {
         var commandDispatcher = event.getDispatcher();
         //var commandBuildContext = event.getBuildContext();
 
+        GameplayClassCommand.register(commandDispatcher);
         TenebraeCommand.register(commandDispatcher);
     }
 }

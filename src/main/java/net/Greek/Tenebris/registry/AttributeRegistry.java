@@ -28,6 +28,7 @@ public class AttributeRegistry {
     public static final DeferredHolder<Attribute, Attribute> SPELL_POWER = ATTRIBUTES.register("spell_power", () -> (new TenebraePercentAttribute("attribute.tenebris.spell_power", 1.0D, -100, 100.0D).setSyncable(true)));
     public static final DeferredHolder<Attribute, Attribute> SPELL_RESIST = ATTRIBUTES.register("spell_resist", () -> (new TenebraePercentAttribute("attribute.tenebris.spell_resist", 1.0D, -100, 100.0D).setSyncable(true)));
     public static final DeferredHolder<Attribute, Attribute> CAST_TIME_REDUCTION = ATTRIBUTES.register("cast_time_reduction", () -> (new TenebraePercentAttribute("attribute.tenebris.cast_time_reduction", 1.0D, -100, 100.0D).setSyncable(true)));
+    public static final DeferredHolder<Attribute, Attribute> MAX_DASH_COUNT = ATTRIBUTES.register("maximum_dashes", () -> (new TenebraeRangedAttribute("attribute.tenebris.max_dash", 0.0D, 0.0D, 1000000.0D).setSyncable(true)));
 
     @SubscribeEvent
     public static void modifyEntityAttributes(EntityAttributeModificationEvent e) {

@@ -39,6 +39,8 @@ public  class KeyBindings {
     public static KeyMapping Spell3 = createBinding("spell_three", GLFW.GLFW_KEY_O);
     public static KeyMapping Spell4 = createBinding("spell_four", GLFW.GLFW_KEY_O);
 
+
+    public static KeyMapping DASH = createBinding("dash", GLFW.GLFW_KEY_G);
     public static KeyMapping ScrollForwards = createBinding("scrollforward", GLFW.GLFW_KEY_O);
     public static KeyMapping ScrollBackwards = createBinding("scrollbackward", GLFW.GLFW_KEY_O);
     public static KeyMapping CastSpell = createBinding("cast", GLFW.GLFW_KEY_O);

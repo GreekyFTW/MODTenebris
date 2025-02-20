@@ -4,6 +4,7 @@ import net.Greek.Tenebris.Tenebris;
 import net.Greek.Tenebris.init.DataComponentRegistry;
 import net.Greek.Tenebris.item.Tools.Claymore.Claymore;
 import net.Greek.Tenebris.item.items.MultiEffectProjectileTestItem;
+
 import net.minecraft.world.item.*;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -44,6 +45,8 @@ public class ModItems {
                                     , -6f ,-2.5F
 
                     ));
+
+    public static final DeferredHolder<Item, Item> MANA_SWORD = ITEMS.register("mana_sword", () -> new ExtendedSwordItem(ExtendedWeaponTier.MANASWORD, ItemPropertiesUtil.equipment().attributes(ExtendedSwordItem.createAttributes(ExtendedWeaponTier.MANASWORD))));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

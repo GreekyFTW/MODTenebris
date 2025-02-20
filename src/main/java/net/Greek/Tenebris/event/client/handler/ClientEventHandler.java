@@ -1,36 +1,28 @@
 
 package net.Greek.Tenebris.event.client.handler;
 
-import net.Greek.Tenebris.GUI.overlay.SpellSlotOverlay;
 import net.Greek.Tenebris.Tenebris;
 import net.Greek.Tenebris.block.entity.ModBlockEntities;
+import net.Greek.Tenebris.block.entity.ModEntities;
+import net.Greek.Tenebris.entity.ability.PaintBallEntity;
+import net.Greek.Tenebris.entity.ability.PaintBallRenderer;
+import net.Greek.Tenebris.entity.ability.model.PaintBallEntityModel;
 import net.Greek.Tenebris.block.entity.plushies.BasePlushBlockRenderer;
 import net.Greek.Tenebris.event.client.PlayerEvents;
-import net.Greek.Tenebris.init.DataComponentRegistry;
 import net.Greek.Tenebris.item.ModItemProperties;
-import net.Greek.Tenebris.item.ModItems;
-import net.Greek.Tenebris.item.Tools.Claymore.Claymore;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
-import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
-import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 
 import static net.Greek.Tenebris.Tenebris.rl;
-import static net.Greek.Tenebris.init.DataComponentRegistry.TRANSFORMED;
 
 @Mod(Tenebris.MOD_ID)
 public class ClientEventHandler {
@@ -41,16 +33,23 @@ public class ClientEventHandler {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             NeoForge.EVENT_BUS.register(PlayerEvents.class);
+            //NeoForge.EVENT_BUS.register(DashPlayerEvent.class);
             event.enqueueWork(ModItemProperties::addCustomItemProperties);
         }
     }
 
     @EventBusSubscriber(modid = Tenebris.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientSetup {
+
+        @SubscribeEvent
+        public static void onRegisterLayerDefinitionsEvent(final EntityRenderersEvent.RegisterLayerDefinitions event) {
+            event.registerLayerDefinition(PaintBallEntityModel.LAYER_LOCATION, PaintBallEntityModel::createBodyLayer);
+        }
+
         @SubscribeEvent
         static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.BASE_BE.get(), BasePlushBlockRenderer::new);
-
+            event.registerEntityRenderer(ModEntities.PAINTBALL_ENTITY.get(), PaintBallRenderer<PaintBallEntity>::new);
         }
 
         @SubscribeEvent

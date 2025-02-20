@@ -16,6 +16,7 @@ public class OverlayRegistry {
     public static void OnRegisterOverlays(final RegisterGuiLayersEvent event){
         event.registerBelow(VanillaGuiLayers.CROSSHAIR,rl("spell_slot_overlay"), SpellSlotOverlay.instance);
         event.registerBelow(VanillaGuiLayers.CROSSHAIR,rl("mana_bar_overlay"), ManaBarOverlay.instance);
+        event.registerBelow(VanillaGuiLayers.CROSSHAIR,rl("dash_overlay"), DashOverlay.instance);
 
     }
 

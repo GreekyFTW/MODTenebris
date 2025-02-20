@@ -10,7 +10,6 @@ import net.neoforged.neoforge.attachment.IAttachmentSerializer;
 import javax.annotation.Nullable;
 
 public class PlayerTenebraeProvider implements IAttachmentSerializer<CompoundTag,TenebraeData> {
-
     @Override
     public TenebraeData read(IAttachmentHolder holder, CompoundTag tag, HolderLookup.Provider provider) {
         //Entities implement IIAttachmentHolder

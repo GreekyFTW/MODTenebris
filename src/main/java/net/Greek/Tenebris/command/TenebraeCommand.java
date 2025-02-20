@@ -18,6 +18,9 @@ public class TenebraeCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         LiteralCommandNode<CommandSourceStack> command = dispatcher.register(Commands.literal("tenebrae")
                 .requires((p) -> p.hasPermission(2))
+
+                .then(Commands.literal("mana")
+
                 .then(Commands.literal("set")
                         .then(Commands.argument("targets", EntityArgument.players())
                                 .then(Commands.argument("amount", IntegerArgumentType.integer())
@@ -29,6 +32,7 @@ public class TenebraeCommand {
                 .then(Commands.literal("get")
                         .then(Commands.argument("targets", EntityArgument.player())
                                 .executes((context) -> getTenebrae(context.getSource(), EntityArgument.getPlayer(context, "targets")))))
+                )
         );
     }
 

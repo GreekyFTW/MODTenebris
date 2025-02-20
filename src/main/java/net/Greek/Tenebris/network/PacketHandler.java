@@ -1,17 +1,14 @@
 package net.Greek.Tenebris.network;
 
-import net.Greek.Tenebris.Tenebris;
-import net.Greek.Tenebris.api.TenebraeData;
+import net.Greek.Tenebris.GameplayClasses.GameplayPlayerData;
 import net.Greek.Tenebris.common.lib.Version;
 
 import net.Greek.Tenebris.item.ModItems;
 import net.Greek.Tenebris.item.Tools.Claymore.Claymore;
 
 import net.Greek.Tenebris.network.packets.BasePacketHandler;
-import net.Greek.Tenebris.util.Utils;
-import net.minecraft.client.Minecraft;
+import net.Greek.Tenebris.network.packets.SyncGameplayPlayerDataPacket;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.configuration.ServerConfigurationPacketListener;
@@ -46,11 +43,11 @@ public class PacketHandler extends BasePacketHandler {
 
     //client to server
     private SimplePacketPayLoad AskModeChange;
-    private SimplePacketPayLoad ManaAddition;
+    private SimplePacketPayLoad GameplayDataUpdateC2S;
     private SimplePacketPayLoad ManaReset;
     private SimplePacketPayLoad ManaBarUpdateC2S;
     private SimplePacketPayLoad ManaBarUpdateS2C;
-
+    private SimplePacketPayLoad AbilityCast;
     //server to client
     private SimplePacketPayLoad AnswerModeChange;
 
@@ -68,8 +65,8 @@ public class PacketHandler extends BasePacketHandler {
 
     }
 
-    public void ManaAddition(){
-        PacketUtils.sendToServer((ManaAddition));
+    public void GameplayDataUpdateC2S(){
+        PacketUtils.sendToServer((GameplayDataUpdateC2S));
     }
 
     public void ManaReset(){
@@ -86,6 +83,10 @@ public class PacketHandler extends BasePacketHandler {
 
     public void AskModeChange() {
         PacketUtils.sendToServer(AskModeChange);
+    }
+
+    public void AbilityCast() {
+        PacketUtils.sendToServer(AbilityCast);
     }
 
     @Override
@@ -144,34 +145,30 @@ public class PacketHandler extends BasePacketHandler {
 
         });
 
-        ManaAddition = registrar.playInstanced((rl("mana_addition")), (ignored, context) -> {
-            if (context.player() instanceof ServerPlayer player) {
-                //ITenebrae tenebrae = Utils.getPlayerTenebrae(player);
-
-                //int storedMana = tenebrae.getStoredMana();
-                //tenebrae.setStoredMana(storedMana + 10);
-                Objects.requireNonNull(player).sendSystemMessage(Component.literal("done "  ));
+        GameplayDataUpdateC2S = registrar.playInstanced((rl("gameplay_data_update")),(ignored, context)->{
+            if (context.player() instanceof ServerPlayer serverPlayer) {
+                GameplayPlayerData gameplayPlayerData = GameplayPlayerData.getGameplayPlayerData(serverPlayer);
+                gameplayPlayerData.setGameplayDashCount(gameplayPlayerData.getDashCount()-1);
+                //gameplayPlayerData.setGameplayDashCountCooldown(gameplayPlayerData.getDashCount()-1,1);
+                //gameplayPlayerData.setGameplayDashCount(gameplayPlayerData.getDashCount()-1);
+                PacketDistributor.sendToPlayer(serverPlayer, new SyncGameplayPlayerDataPacket(gameplayPlayerData));
             }
         });
 
-        ManaReset = registrar.playInstanced((rl("mana_reset")),(ignored, context)->{
+        AbilityCast = registrar.playInstanced((rl("ability_cast")),(ignored, context)->{
             if (context.player() instanceof ServerPlayer player) {
-                //ITenebrae tenebrae = Utils.getPlayerTenebrae(player);
+//                PacketDistributor.sendToPlayer(serverPlayer, new FirstAbilityCastPacket());
 
-                //tenebrae.setStoredMana(0);
+//                PaintBall arrow = new PaintBallEntity(,player.level());
+//                arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 5 * 3.0F, 0.0F);
+//
+//
+//                player.level().addFreshEntity(arrow);
 
-                Objects.requireNonNull(player).sendSystemMessage(Component.literal("reset "));
+
+
             }
         });
-
-        ManaBarUpdateC2S = registrar.playInstanced((rl("mana_bar_update")),(ignored, context)->{
-            if (context.player() instanceof ServerPlayer player) {
-                //ITenebrae tenebrae = Utils.getPlayerTenebrae(player);
-                Tenebris.packetHandler().AnswerManaUpdate(player);
-            }
-        });
-
-        
     }
 
     @Override

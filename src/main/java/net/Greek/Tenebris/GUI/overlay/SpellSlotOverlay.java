@@ -1,25 +1,10 @@
 package net.Greek.Tenebris.GUI.overlay;
 
-import net.Greek.Tenebris.Tenebris;
-import net.Greek.Tenebris.event.client.ClientTenebraeData;
-import net.Greek.Tenebris.item.Tools.Claymore.Claymore;
-import net.Greek.Tenebris.util.Utils;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.EntityEvent;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
-import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
-import net.neoforged.neoforge.event.entity.living.LivingEvent;
-
-import java.util.Objects;
 
 import static net.Greek.Tenebris.Tenebris.rl;
 
@@ -44,6 +29,8 @@ public class SpellSlotOverlay implements  LayeredDraw.Layer{
 
         assert mc.player != null;
 
+
+
         var screenWidth = guiGraphics.guiWidth();
         var screenHeight = guiGraphics.guiHeight();
 
@@ -57,6 +44,11 @@ public class SpellSlotOverlay implements  LayeredDraw.Layer{
         textX = barX + (IMAGE_WIDTH - font.width("2")) / 2;
         textY = barY + IMAGE_HEIGHT / 2 - font.lineHeight / 2 + 1;
 
+//        guiGraphics.drawString(font, ClientGameplayPlayerData.getPlayerGameplaySpellData()[0], barX+27, barY, ChatFormatting.AQUA.getColor());
+//        guiGraphics.drawString(font, ClientGameplayPlayerData.getPlayerGameplaySpellData()[1], barX+27, barY-30, ChatFormatting.AQUA.getColor());
+//        guiGraphics.drawString(font, ClientGameplayPlayerData.getPlayerGameplaySpellData()[2], barX+27, barY-60, ChatFormatting.AQUA.getColor());
+//        guiGraphics.drawString(font, ClientGameplayPlayerData.getPlayerGameplaySpellData()[3], barX+27, barY-90, ChatFormatting.AQUA.getColor());
+//        guiGraphics.drawString(font, "s"+ClientGameplayPlayerData.getDashCount(), barX+27, barY-90, ChatFormatting.AQUA.getColor());
 
 
     }

@@ -94,6 +94,7 @@ public class ClientTenebraeData {
         ClientTenebraeData.playerTenebraeData.setTenebrae(playerTenebrae);
     }
 
+
 //    public static CastType getCastType() {
 //        return ClientTenebraeData.playerTenebraeData.getCastType();
 //    }

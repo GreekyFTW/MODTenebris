@@ -1,6 +1,7 @@
 package net.Greek.Tenebris.GUI.overlay;
 
 import net.Greek.Tenebris.config.ClientConfigs;
+import net.Greek.Tenebris.event.client.ClientGameplayClassData;
 import net.Greek.Tenebris.event.client.ClientTenebraeData;
 import net.Greek.Tenebris.item.Tools.Claymore.Claymore;
 import net.minecraft.ChatFormatting;
@@ -10,7 +11,10 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+
+import java.util.Objects;
 
 import static net.Greek.Tenebris.Tenebris.rl;
 import static net.Greek.Tenebris.registry.AttributeRegistry.MAX_MANA;
@@ -36,13 +40,15 @@ public class ManaBarOverlay implements LayeredDraw.Layer {
     static final int CHAR_WIDTH = 6;
     static final int HUNGER_BAR_OFFSET = 50;
     static final int SCREEN_BORDER_MARGIN = 20;
+    float ANIMATION_OFFSET=0;
+    int TICK_OFFSET=0;
 
     static final int IMAGE_WIDTH = 54;
     static final int COMPLETION_BAR_WIDTH = 44;
      int storedMana = 0;
 
     private static final ResourceLocation MANA_BAR_EMPTY =
-            rl("textures/gui/mana_bar/256x256_maptexture.png");
+            rl("textures/gui/mana_bar/256x256_maptexture_animated.png");
     private static final ResourceLocation MANA_BAR_FULL =
             rl("textures/gui/mana_bar/mana_bar_full.png");
     Minecraft mc = Minecraft.getInstance();
@@ -52,12 +58,13 @@ public class ManaBarOverlay implements LayeredDraw.Layer {
     public void render(GuiGraphics guiGraphics, DeltaTracker DeltaTracker) {
         if (Minecraft.getInstance().options.hideGui || Minecraft.getInstance().player.isSpectator()) {}
 
-
         assert mc.player != null;
 
         int mana = ClientTenebraeData.getPlayerTenebrae();
         int maxmana = (int) mc.player.getAttributeValue(MAX_MANA);
+        int previousmana = mana;
         int BonusManaPercent = (77/maxmana) * mana;
+        String manafraction = (mana) + "/" + maxmana;
 
         int barX , barY;
         int configOffsetY = ClientConfigs.MANA_BAR_Y_OFFSET.get();
@@ -74,13 +81,14 @@ public class ManaBarOverlay implements LayeredDraw.Layer {
         int spriteX = anchor == Anchor.XP ? 68 : 0;
         int spriteY = anchor == Anchor.XP ? 40 : 0;
 
-
-            guiGraphics.blit(MANA_BAR_EMPTY, barX, barY, spriteX, spriteY+33, imageWidth+6 , IMAGE_HEIGHT,256,256);
-            guiGraphics.blit(MANA_BAR_EMPTY, barX, barY, spriteX, spriteY,20+(int) (77 * Math.min((mana / (double) maxmana),0.985)) , IMAGE_HEIGHT,256,256);
-            //guiGraphics.drawString(font, "hold it "+ mana , barX, barY, 0xFFFFFF);
+            guiGraphics.blit(MANA_BAR_EMPTY, barX, barY, spriteX, spriteY+33, imageWidth+6 , IMAGE_HEIGHT,256,7680);
+            guiGraphics.blit(MANA_BAR_EMPTY, barX, barY, spriteX, spriteY + TICK_OFFSET*256,20+(int) (77 * Math.min((mana / (double) maxmana),0.985)) , IMAGE_HEIGHT,256,7680);
+            guiGraphics.drawString(font,manafraction + ClientGameplayClassData.getPlayerGameplayClassData() , barX+27, barY, ChatFormatting.AQUA.getColor());
+            //guiGraphics.drawString(font,ANIMATION_OFFSET+""+TICK_OFFSET+""+ DeltaTracker.getRealtimeDeltaTicks() , barX+27, barY-50, ChatFormatting.AQUA.getColor());
 
 
     }
+  
 
     private static int getBarX(Anchor anchor, int screenWidth) {
         if (anchor == Anchor.XP)

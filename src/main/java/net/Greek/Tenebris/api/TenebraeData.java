@@ -64,7 +64,31 @@ public class TenebraeData {
     public void addTenebrae(float mana) {
         setTenebrae(this.mana + mana);
     }
+    /********* DASH DATA *******************************************************/
 
+
+//    private float dash;
+//
+//    public float getDashCount() {
+//        return dash;
+//    }
+//
+//    public void setTenebrae(int dash) {
+//        //Event will not get posted if the server player is null
+//        ChangeTenebraeEvent e = new ChangeTenebraeEvent(this.serverPlayer, this, this.dash, dash);
+//        if (this.serverPlayer == null || !NeoForge.EVENT_BUS.post(e).isCanceled()) {
+//            this.dash = e.getNewTenebrae();
+//        }
+//        if (this.serverPlayer != null) {
+//
+//                this.dash = maxTenebrae;
+//
+//        }
+//    }
+//
+//    public void addTenebrae(int dash) {
+//        setTenebrae(this.dash + dash);
+//    }
     /********* SYNC DATA *******************************************************/
 
 //    private SyncedSpellData syncedSpellData;

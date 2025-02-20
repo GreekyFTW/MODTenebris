@@ -34,9 +34,5 @@ public class Attachments {
 
 
 
-    static {
-        //PLAYER_ATTACHMENTS = register("player_mana", Tenebrae::new, new TenebraeProvider());
-
-    }
 
 }

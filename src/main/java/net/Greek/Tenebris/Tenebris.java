@@ -6,15 +6,19 @@ import com.mojang.serialization.Codec;
 import net.Greek.Tenebris.api.magic.TenebraeHelper;
 import net.Greek.Tenebris.block.ModBlocks;
 import net.Greek.Tenebris.block.entity.ModBlockEntities;
+import net.Greek.Tenebris.block.entity.ModEntities;
 import net.Greek.Tenebris.capabilities.TenebraeManager;
 import net.Greek.Tenebris.common.lib.Version;
 import net.Greek.Tenebris.config.ClientConfigs;
 import net.Greek.Tenebris.dataAttachments.DataAttachmentRegistry;
+import net.Greek.Tenebris.event.DashEvent;
+import net.Greek.Tenebris.event.client.DashPlayerEvent;
 import net.Greek.Tenebris.event.client.PlayerEvents;
 import net.Greek.Tenebris.item.ModCreativeModeTab;
 import net.Greek.Tenebris.item.ModItems;
 import net.Greek.Tenebris.network.PacketHandler;
 import net.Greek.Tenebris.registry.AttributeRegistry;
+import net.Greek.Tenebris.registry.EntityRegistry;
 import net.Greek.Tenebris.sound.ModSounds;
 
 //import net.Greek.Tenebris.client.entityrenderers.plushies.ReiAyanamiPlushBlockRenderer;
@@ -76,7 +80,7 @@ public class Tenebris
         ModCreativeModeTab.register(modEventBus); //creative mode tab
 
 
-
+        ModEntities.register(modEventBus);//entities
         ModItems.register(modEventBus); //items
         ModBlocks.register(modEventBus); //blocks
 
@@ -92,6 +96,7 @@ public class Tenebris
         //NeoForge.EVENT_BUS.register(MusicEvent.class);
 
         NeoForge.EVENT_BUS.register(PlayerEvents.class);
+        //NeoForge.EVENT_BUS.register(DashPlayerEvent.class);
 
         modEventBus.addListener(this::commonSetup);
 
